@@ -112,7 +112,7 @@ Released   : 20130517
 </div>
 <!-- footer2 lo agregÃ³ Ricar -->
 <div id="footer2">
-	<p> 2020 - Repositorio del INTI |<a href="http://www-biblio.inti.gob.ar/"> Biblioteca</a>.</p>
+	<p> 2020 - Repositorio del INTI |<a href="https://biblioteca.inti.gob.ar/"> Biblioteca</a>.</p>
 </div>
 <div id="footer">
 	<p> 2013 Sitename.com. | Photo by <a href="http://www.leagoon.com/">Leagoon</a> | Design by <a href="http://www.freecsstemplates.org/" rel="nofollow">FreeCSSTemplates.org</a>.</p>

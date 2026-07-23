@@ -74,8 +74,9 @@ function mostrar(id){
     <link rel="stylesheet" href="interfaces/{$interface_name}/styles/modern.css?v=7.03" type="text/css" />
 <!-- Hasta acÃ¡ -->
 
-		<link rel="shortcut icon" href="interfaces/{$interface_name}/images/favicon_inti.svg?v=2" type="image/svg+xml"/> 
-		
+		<link rel="shortcut icon" href="interfaces/{$interface_name}/images/favicon_inti.svg?v=2" type="image/svg+xml"/>
+		<link rel="icon" href="interfaces/{$interface_name}/images/favicon_inti.png?v=1" type="image/png" sizes="512x512"/>
+
 		<script type="text/javascript" src="interfaces/{$interface_name}/js/jquery.min.js"><xsl:text> </xsl:text></script>
 		<script type="text/javascript" src="interfaces/{$interface_name}/js/jquery-ui-1.10.2.custom/js/jquery-ui-1.10.2.custom.min.js"><xsl:text> </xsl:text></script>
 		<script type="text/javascript" src="interfaces/{$interface_name}/js/jquery.themeswitcher.min.js"><xsl:text> </xsl:text></script>

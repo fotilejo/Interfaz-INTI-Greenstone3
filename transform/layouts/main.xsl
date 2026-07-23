@@ -35,12 +35,13 @@
 		{
 		  "@context" : "https://schema.org",
 		  "@type" : "WebSite",
-		  "name" : "Instituto Nacional de Tecnología Industrial",
-		  "alternateName" : "INTI",
-		  "url" : "https://app.inti.gob.ar/greenstone3/library"
+		  "name" : "Repositorio Institucional INTI",
+		  "alternateName" : ["INTI", "Instituto Nacional de Tecnología Industrial"],
+		  "url" : "https://app.inti.gob.ar/greenstone3/biblio"
 		}
 		</script>
 		<link rel="icon" type="image/svg+xml" href="https://app.inti.gob.ar/greenstone3/interfaces/otra/images/favicon_inti.svg" />
+		<link rel="icon" type="image/png" sizes="512x512" href="https://app.inti.gob.ar/greenstone3/interfaces/otra/images/favicon_inti.png" />
 	</head>
 	<body id="top">
 		<xsl:if test="page/pageRequest/@subaction='home'">
@@ -122,7 +123,7 @@ displayItem[@name='name']" disable-output-escaping="yes"/>
 				<ul class="site-footer__links">
 					<li><a href="https://www.inti.gob.ar">Web INTI</a></li>
 					<li><a href="https://repositoriosdigitales.mincyt.gob.ar">Sistema Nacional de Repositorios Digitales (SNRD)</a></li>
-					<li><a href="http://www-biblio.inti.gob.ar">Biblioteca INTI</a></li>
+					<li><a href="https://biblioteca.inti.gob.ar">Biblioteca INTI</a></li>
 				</ul>
 			</section>
 			<section>
