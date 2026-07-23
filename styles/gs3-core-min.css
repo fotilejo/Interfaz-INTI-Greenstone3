@@ -1,0 +1,384 @@
+
+/* -------- SEARCH ------- */
+.paramLabel {
+	margin: 2px;
+	float: left;
+	min-width: 250px;
+}
+.paramValue {
+	margin: 2px;
+	float: left;
+}
+
+
+/** query form style**/
+div#queryform{
+
+}
+
+/** search result style */
+.termInfo{
+font-style: italic;
+
+}
+
+div#matchdocs{
+clear: both;
+}
+
+div.resultnavigation{
+ margin: 0;
+ padding:0;
+}
+
+ul#resultlist li{
+  display:block;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Horizontal Classifiers */
+
+.horizontalContainer {
+	padding-left:0px;
+	margin:20px;
+	text-transform: uppercase; /* To get the bookshelves and buckets titlecased (they're stored lowercased) */
+}
+
+.selectedHorizontalClassifierNode a{
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.horizontalClassifierNode {
+	padding:0px 0px 10px 10px;
+	list-style:none;
+	display: inline-block;
+}
+
+/* Registered users table */
+
+
+#userListTable {
+	text-align: center;
+	width: 90%;
+	margin: auto;
+}
+
+#userListTable td{
+	border: black 1px solid;
+	padding: 5px;
+}
+
+
+table{
+	border-collapse:collapse;
+	border-spacing:0; 
+}
+
+
+
+#auth_navbar {
+	width: 90%;
+	margin: 10px auto;
+}
+
+#auth_navbar span{
+	padding:3px;
+}
+
+
+
+
+/* TABLE OF CONTENTS*/
+.termList {
+	font-size:12px;
+	line-height:14px;
+}
+
+.noTermHighlight{
+
+}
+
+.termHighlight{
+	background:yellow;
+}
+
+#viewAndZoomOptions {
+	margin-bottom:10px;
+	border:0px;
+	/* display:none; Elimina la opción de habilitar/deshabilitar el resaltado de palabras de búsqueda */
+}
+
+#viewOptions {
+	margin: 0px;
+	padding: 0px;
+}
+
+#viewOptions li {
+	list-style:none;
+	float:left;
+	padding: 5px;
+	cursor:pointer;
+}
+
+
+
+.tableOfContentsTitle{
+	font-weight:bold;
+	text-align:left;
+}
+
+.viewOptions a:link, .viewOptions a:hover, .viewOptions a:active, .viewOptions a:visited {
+	text-decoration:none;
+}
+
+#rightSidebar {display: none;
+	width: 30%;
+	min-width:180px;
+	float:right;
+	margin: 0 0 10px 20px;
+}
+
+#contentsArea {
+	padding:0px 10px;
+}
+
+#collectionLinks {
+	position: relative;
+}
+
+
+.tocTable {
+	width: 100%;
+	background: white !important;
+}
+
+.tocTextCell {
+	padding-left:5px;
+}
+
+.tableOfContentsContainer {
+	padding:1px;
+	max-height:500px;
+}
+
+#tableOfContents {
+	margin: 0;
+	padding: 0;
+	font-size: 90%;
+}
+
+#tableOfContents li {
+	list-style: none;
+	margin: 0;
+	padding: 2px;
+}
+
+#tableOfContents li.current {
+	background-color: #090;
+}
+
+#tableOfContents li.current li {
+	background-color: #fff;
+}
+
+
+/* SECTIONED DOCUMENTS*/
+
+.sectionHeader {
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+.headerTD {
+	vertical-align: middle;
+}
+
+/* Styles for the different depths */
+.sectionHeaderDepthTitle{
+	font-size:1.4em;
+	line-height:1em;
+	font-weight:bold;
+}
+
+.sectionHeaderDepth1{
+	font-size:1.3em;
+	line-height:1em;
+	font-weight:bold;
+}
+
+.sectionHeaderDepth2{
+	font-size:1.2em;
+	line-height:1em;
+	font-weight:bold;
+	font-style:italic;
+}
+
+.sectionHeaderDepth3{
+	font-size:1.1em;
+	line-height:1em;
+	font-style:italic;
+}
+
+.sectionHeaderDepth4{
+	font-size:1em;
+	line-height:1em;
+	font-weight:italic;
+}
+
+.sectionNumberSpan{
+	/*Comment out this line to enable automatic section numbering*/
+	display:none;
+}
+
+.sectionContainer{
+	padding-top:0.5em;
+	padding-bottom:1em;
+	padding-left:1.5em;
+}
+
+
+
+.sectionText pre {
+width: 100%;
+overflow:hidden;
+clear:both;
+}
+
+#gs-document-text pre {
+white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+white-space: -pre-wrap;      /* Opera 4-6 */
+white-space: -o-pre-wrap;    /* Opera 7 */
+white-space: pre-wrap;       /* css-3 */
+word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+
+
+/*  HIERARCHICAL CLASSIFIERS     */
+
+table {
+    border-collapse: collapse;margin-left: 15px; /* Ricar margin-right:15%; */
+    border-spacing: 0;  /* Ricar agregó width: 90%; */
+}
+.childrenlist {
+    margin: 0 0 0 10px;
+}
+.childrenlist td {
+    padding: 3px 0 0 10px;
+}
+
+
+
+/* PAGED IMAGE VIEWER */
+
+#viewOptions li {
+    cursor: pointer;
+    float: left;
+    list-style: none outside none;
+    padding: 5px;
+	  display: block;
+}
+
+
+.pageSlider {
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    padding: 2px;
+    width: 250px;
+}
+.pageSliderSpacer {
+    width: 2px;
+}
+.pageSliderCol {
+    height: 100px;
+    padding: 2px;
+    text-align: center;
+    vertical-align: top;
+}
+
+
+
+
+/* INTERFACE SPECIFIC */
+
+
+.col2{color:#FFFFFF; background-color:#DDDDDD; height:67px;}
+
+#header .fl_left p{
+	font-size: 22px; display: none;
+	}
+
+.container{
+	min-height: 300px;
+	}
+
+	
+.column .latestnews li{
+	height: auto;
+	}	
+
+#hpage_cats{
+	margin-top: 0px;
+	}	
+
+	
+#hpage_cats .fl_left img, #hpage_cats .fl_right img{
+	height: 100px;
+	width: 100px;
+	}	
+
+
+.panel .panel-overlay, .panel .overlay-background{height: 20px;}
+
+
+#advanced {
+margin: 2px 0px 0px 0px;
+float: right;
+clear: both;
+}	
+
+input[type='submit'], button {
+display:block;
+	float:left;
+	border:1px solid #396B86;
+	font-size:12px;
+	width:68px;
+	height:26px;
+	margin:0;
+	padding:4px 0;
+	text-transform:uppercase;
+	color:#FFFFFF;
+	background-color:#224188;	/* Antes background-color:#059BD8 */
+	border-color:#396B86;
+	cursor:pointer;
+	font-weight:bold;
+}	
+
+#changePasswordButton {
+	width:175px;
+}	
+
+#addGroupButton {
+	width:100px;
+}
+
+
+li.login  a {
+color: #a4e3fd;
+}
+
+
+input[value='Set preferences'] {
+width: 150px;
+}

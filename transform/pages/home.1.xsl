@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="ISO 8859-1"?>
+<xsl:stylesheet version="1.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:java="http://xml.apache.org/xslt/java"
+	xmlns:util="xalan://org.greenstone.gsdl3.util.XSLTUtil"
+	xmlns:gslib="http://www.greenstone.org/skinning"
+	extension-element-prefixes="java util"
+	exclude-result-prefixes="java util">
+
+	<!-- the page content -->
+	<xsl:template match="/page/pageResponse">
+<!--	
+		<div class="content">
+			<div id="featured_slide">
+				<ul id="featurednews">
+					<xsl:call-template name="collSlider"/>
+				</ul>
+			</div>
+		</div>
+-->
+<!-- Cambio por este -->
+		<div class="content">
+			<xsl:call-template name="imagenInst"/>
+		</div>
+<!-- Termino el cambio -->
+
+		<div class="column">
+			<ul class="latestnews">
+				<li>
+					<p><strong><!--<a href="{$library_name}">título</a>--><br/><br/>El Repositorio INTI incluye artículos publicados en revistas académicas, documentos de conferencias y libros, producidos por personal del Instituto Nacional de Tecnología Industrial.</strong></p>
+					<!-- {$library_name} lo puse yo en lugar de # -->
+				</li>
+				<!--<li class="last"><img src="interfaces/{$interface_name}/images/80x80.jpg" alt="" />
+					<p><strong><a href="{$library_name}">Noticia 2</a></strong><br/>En este lugar se puede agregar informaci&#243;n sobre alg&#250;n &#237;tem que se quiera resaltar del repositorio con o sin una imagen relacionada.</p>
+				</li>
+				<li class="last"><img src="interfaces/{$interface_name}/images/100x100.jpg" width="80px" height="80px" alt="" />
+					<p><strong><a href="#">Noticia 3</a></strong><br/>En este lugar se puede agregar informaci&#243;n sobre alg&#250;n &#237;tem que se quiera resaltar del repositorio con o sin una imagen relacionada.</p>
+				</li>-->
+			</ul>
+		</div>
+		<br class="clear" />
+		
+		<div id="hpage_cats">
+			<!--<xsl:call-template name="collectionsList"/>-->
+			<xsl:call-template name="collectionsOrGroupsList"/>
+		</div>
+		
+	</xsl:template>
+
+	<xsl:template name="imagenInst">
+			<xsl:variable name="collectionFolder" select="@name"/>
+			<xsl:variable name="collectionName" select="displayItemList/displayItem[@name='name']"/>
+			<xsl:variable name="homeImage">
+						interfaces/<xsl:value-of select="$interface_name"/>/images/biblio5.jpg
+			</xsl:variable>
+			<img class="foto" src="{$homeImage}" width="260px" height="182px" alt="" /> <!-- width="508px" height="180px" / width="600px" height="280px" -->
+<!-- Agrego desde aca -->
+			<xsl:variable name="homeImage">
+						interfaces/<xsl:value-of select="$interface_name"/>/images/sala2.jpg
+			</xsl:variable>
+			<img class="foto" src="{$homeImage}" width="260px" height="182px" alt="" /> 
+<!-- hasta aca -->
+	</xsl:template>
+
+	<xsl:template name="collSlider">
+		<xsl:for-each select="./collectionList/collection">
+			<xsl:variable name="collectionFolder" select="@name"/>
+			<xsl:variable name="collectionName" select="displayItemList/displayItem[@name='name']"/>
+			<xsl:variable name="homeImage">
+				<xsl:choose>
+					<xsl:when test="displayItem[@name='smallicon']">
+						sites/<xsl:value-of select="$site_name"/>/collect/<xsl:value-of select="$collectionFolder"/>/images/<xsl:value-of select="displayItem[@name='smallicon']"/>
+					</xsl:when>
+					<xsl:otherwise>
+						interfaces/<xsl:value-of select="$interface_name"/>/images/default.jpg
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
+
+			<li><img src="{$homeImage}" alt="" />
+				<div class="panel-overlay">
+					<a href="{$library_name}/collection/{$collectionFolder}/page/about">
+						<h2><xsl:value-of select="$collectionName"/></h2>
+					</a>
+				</div>
+			</li>
+		</xsl:for-each>
+	</xsl:template>
+	<xsl:template name="additionalHeaderContent">
+		<script type="text/javascript" src="interfaces/{$interface_name}/scripts/jquery.easing.1.3.js"><xsl:text> </xsl:text></script>
+		<script type="text/javascript" src="interfaces/{$interface_name}/scripts/jquery.timers.1.2.js"><xsl:text> </xsl:text></script>
+		<script type="text/javascript" src="interfaces/{$interface_name}/scripts/jquery.galleryview.2.1.1.min.js"><xsl:text> </xsl:text></script>
+		<script type="text/javascript" src="interfaces/{$interface_name}/scripts/jquery.galleryview.setup.js"><xsl:text> </xsl:text></script>
+	</xsl:template>
+
+	<xsl:template name="collectionsList">
+		<xsl:for-each select="./collectionList/collection">
+			<xsl:choose>
+				<xsl:when test="position() mod 2 = 1">
+					<div class="fl_left">
+						<xsl:call-template name="collDescription"/>
+					</div>
+				</xsl:when>
+				<xsl:otherwise>
+					<div class="fl_right">
+						<xsl:call-template name="collDescription"/>
+					</div>
+					<br class="clear" />
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:for-each>
+	</xsl:template>
+
+	<xsl:template name="collDescription">
+		<xsl:variable name="collectionFolder" select="@name"/>
+		<xsl:variable name="collectionName" select="displayItemList/displayItem[@name='name']"/>
+		<xsl:variable name="aboutImage" select="displayItemList/displayItem[@name='icon']"/>
+		<xsl:variable name="collDesc" select="displayItemList/displayItem[@name='description']"/>
+		<xsl:variable name="numDocs" select="metadataList/metadata[@name='numDocs']"/>
+
+		<h2><a href="{$library_name}/collection/{$collectionFolder}/page/about"><xsl:value-of select="$collectionName"/></a></h2>
+		<xsl:if test="$aboutImage">
+			<img src="sites/{$site_name}/collect/{$collectionFolder}/images/{$aboutImage}" alt="{$collectionName}" />
+		</xsl:if>
+
+		<xsl:choose>
+			<xsl:when test="$collDesc">
+				<p class="justify"><xsl:value-of select="$collDesc" disable-output-escaping="yes"/></p>
+			</xsl:when>
+			<xsl:otherwise>
+				<p class="justify">Welcome to the <xsl:value-of select="$collectionName"/> collection. This collection contains <xsl:value-of select="$numDocs"/> documents.</p>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:template>
+
+<xsl:template name="collectionsOrGroupsList">
+  <xsl:for-each select="./collectionList/collection|groupList/group">
+    <xsl:choose>
+      <xsl:when test="position() mod 2 = 1">
+        <div class="fl_left">
+      	  <xsl:call-template name="collOrGroupDescription"/>
+        </div>
+      </xsl:when>
+      <xsl:otherwise>
+        <div class="fl_right">
+	  <xsl:call-template name="collOrGroupDescription"/>
+        </div>
+        <br class="clear" />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:for-each>
+</xsl:template>
+
+<xsl:template name="collOrGroupDescription">
+	<xsl:if test="name() = 'group'">
+	  <xsl:call-template name="customGroupDescription"/><!--<gslib:groupLinkWithImage/>-->
+	</xsl:if>
+	<xsl:if test="name() = 'collection'">
+	  <xsl:call-template name="collDescription"/><!--<gslib:collectionLinkWithImage/>-->
+	</xsl:if>				
+</xsl:template>
+
+<!-- Modified version of <gslib:groupLinkWithImage/> for customising otra (biblio) interface -->
+	<xsl:template name="customGroupDescription">
+	  <xsl:variable name="short"><xsl:value-of select="shortDescription"/></xsl:variable>
+	  <xsl:variable name="desc"><xsl:value-of select="description"/></xsl:variable>
+	  <xsl:variable name="group_href"><xsl:value-of select="$library_name"/>/group/<xsl:if test="/page/pageRequest/paramList/param[@name='group']"><xsl:value-of select="/page/pageRequest/paramList/param[@name='group']/@value"/>/</xsl:if><xsl:value-of select="@name"/></xsl:variable>
+	  
+	  <!-- creates a header that links to the collection's about page -->
+	  <!--group: <xsl:value-of select="@name"/>-->
+	  <h2>
+	    <a href="{$group_href}" title="{$short}">
+	      <xsl:choose>
+		<xsl:when test="boolean(title)">
+		  <xsl:value-of select="title"/>
+		</xsl:when>
+		<xsl:otherwise>
+		  <xsl:value-of select="@name"/>
+		</xsl:otherwise>
+	      </xsl:choose>
+	    </a>
+	  </h2>
+
+	  <!-- if there is an image for this group, this is displayed -->
+	  <xsl:choose>
+	    <xsl:when test="util:checkFileExistence($site_name, backgroundImage)">
+		<img class="groupLinkImage">
+		  <xsl:attribute name="alt"><xsl:value-of select="@name"/></xsl:attribute>
+		  <xsl:attribute name="src">sites/<xsl:value-of select="$site_name"/>/<xsl:value-of select="backgroundImage"/></xsl:attribute>
+		  <xsl:attribute name="height">200px</xsl:attribute>
+		  <xsl:attribute name="style">float:right</xsl:attribute>
+		</img>
+	    </xsl:when>	    
+	  </xsl:choose>
+
+	  <div style="clear:right">
+	  <xsl:choose>
+	    <!-- If the group has a description - display it -->
+	    <xsl:when test="$desc">
+              <!-- for supporting html in group description, see how the collection description
+              is displayed in template name='collDescription' -->
+	      <p class="justify"><xsl:value-of select="$desc" disable-output-escaping="yes"/></p>
+	    </xsl:when>
+	    <!-- If no group description - repeat group name -->
+	    <xsl:otherwise>
+	      <p class="justify">Collection group: <xsl:value-of select="@name" disable-output-escaping="yes"/></p>
+	    </xsl:otherwise>
+	  </xsl:choose>
+	  </div>
+	</xsl:template>
+	
+</xsl:stylesheet>
+
+

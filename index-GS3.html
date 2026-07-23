@@ -1,0 +1,210 @@
+<!-- DO NOT REDISTRIBUTE WITHOUT WRITTEN PERMISSION FROM OS-TEMPLATES. SEE http://www.os-templates.com/template-terms FOR LICENSE INFORMATION. -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="EN" lang="EN" dir="ltr">
+<head profile="http://gmpg.org/xfn/11">
+<title>Library Name</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="imagetoolbar" content="no" />
+<!--************* GOES IN HEADER.XSL***********************-->
+<link rel="stylesheet" href="styles/layout.css" type="text/css" />
+<link rel="stylesheet" href="styles/gs3-core-min.css" type="text/css" />
+<link rel="icon" href="images/favicon.ico?v=2" type="image/x-icon" />
+<script type="text/javascript" src="scripts/jquery-1.4.1.min.js"><xsl:text> </xsl:text></script>
+<!--********** GOES IN HOME.XSL - additionalHeaderContent *******************-->
+<script type="text/javascript" src="scripts/jquery.easing.1.3.js"><xsl:text> </xsl:text></script>
+<script type="text/javascript" src="scripts/jquery.timers.1.2.js"><xsl:text> </xsl:text></script>
+<script type="text/javascript" src="scripts/jquery.galleryview.2.1.1.min.js"><xsl:text> </xsl:text></script>
+<script type="text/javascript" src="scripts/jquery.galleryview.setup.js"><xsl:text> </xsl:text></script>
+<!--**********************************************************************-->
+<!--******************************** GOES IN MAIN.XSL********************************-->
+</head>
+<body id="top">
+<div class="wrapper col0">
+  <div id="topline">
+    <ul>
+      <li class="login"><a href="#">Login</a></li>
+      <li><a href="{$library_name}/collection/{$collNameChecked}/page/pref">Preferences</a></li>
+      <li><a href="{$library_name}/collection/{$collNameChecked}/page/pref">Help</a></li>
+    </ul>
+    <br class="clear" />
+  </div>
+</div>
+<!--**********************************************************************-->
+<div class="wrapper">
+  <div id="header">
+    <div class="fl_left">
+      <h1><a href="#"><strong>Library Name</strong></a></h1>
+      <p>Collection Name</p>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<!--**********************************************************************-->
+<div class="wrapper col2">
+  <div id="topbar">
+    <div id="topnav">
+      <ul>
+        <li class="active"><a href="index.html">Home</a></li>
+        <li><a href="style-demo.html">Browse</a>
+		<ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+          </ul>
+		</li>
+        <li><a href="#">Search</a>
+          <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+<!--**********************************************************************-->
+    <div id="search">
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Site Search</legend>
+          <input type="text" value="Search Our Website&#8230;"  onfocus="this.value=(this.value=='Search Our Website&#8230;')? '' : this.value ;" />
+          <input type="submit" name="go" id="go" value="Search" />
+        </fieldset>
+      </form>
+
+    </div>	  
+    <br class="clear" />
+	<div id="advanced"><a href="#">advanced search</a></div>	
+  </div>
+</div>
+<!--**********************************************************************-->
+
+<div class="wrapper">
+  <div class="container">
+  
+<!--***********************************************************************************-->  
+<!--******************************** GOES IN HOME.XSL********************************-->  
+
+    <div class="content">
+      <div id="featured_slide">
+        <ul id="featurednews">
+          <li><img src="images/default.jpg" alt="" />
+<div class="panel-overlay">
+               <a href="#"><h2>Collection Name</h2></a>
+            </div>          </li>
+          <li><img src="images/default.jpg" alt="" />
+            <div class="panel-overlay">
+               <a href="#"><h2>Collection Name</h2></a>
+            </div>
+          </li>
+          <li><img src="images/default.jpg" alt="" />
+           <div class="panel-overlay">
+               <a href="#"><h2>Collection Name</h2></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+	<!--**********************************************************************-->
+		<div class="column">
+		  <ul class="latestnews">
+			<li>
+			  <p><strong><a href="#">Highlighted Item 1</a></strong><br/>This is a place where you can put information about an item you would like to highlight in your collection, with or without an accompanying image.</p>
+			</li>
+			<li><img src="images/80x80.jpg" alt="" />
+			  <p><strong><a href="#">Highlighted Item 2</a></strong><br/>This is a place where you can put information about an item you would like to highlight in your collection,with or without an accompanying image.</p>
+			</li>
+			<li class="last"><img src="images/80x80.jpg" alt="" />
+			  <p><strong><a href="#">Highlighted Item 3</a></strong><br/>This is a place where you can put information about an item you would like to highlight in your collection, with or without an accompanying image.</p>
+			</li>
+		  </ul>
+		</div>
+			<br class="clear" />
+<!--**********************************************************************-->
+	<div id="hpage_cats">
+		<div class="fl_left">
+			<h2><a href="#">Collection name</a></h2>	  
+			<img src="images/100x100.jpg" alt="" />
+			<p class="justify">This area of the homepage lists all of the collections, along with their description and, if specified, the collection's About image (resized to 100px x 100px).</p>
+		</div>
+		<div class="fl_right">
+			<h2><a href="#">Collection name</a></h2>	  
+			<img src="images/100x100.jpg" alt="" />
+			<p class="justify">This area of the homepage lists all of the collections, along with their description and, if specified, the collection's About image (resized to 100px x 100px).</p>
+		</div>
+		<br class="clear" />
+		<div class="fl_left">
+			<h2><a href="#">Collection name</a></h2>	  
+			<img src="images/100x100.jpg" alt="" />
+			<p class="justify">This area of the homepage lists all of the collections, along with their description and, if specified, the collection's About image (resized to 100px x 100px).</p>
+		</div>
+		<div class="fl_right">
+			<h2><a href="#">Collection name</a></h2>	  
+			<img src="images/100x100.jpg" alt="" />
+			<p class="justify">This area of the homepage lists all of the collections, along with their description and, if specified, the collection's About image (resized to 100px x 100px).</p>
+		</div>
+		<br class="clear" />
+		<br class="clear" />	
+	</div>
+<!--***********************************************************************************-->  
+<!--******************************** GOES IN MAIN.XSL********************************--> 	
+	    <br class="clear" />	
+  </div>
+</div>
+<!--***********************************************************************************-->  
+<!--*********************** GOES IN MAIN.XSL -- GS_FOOTER ***********************--> 
+<div class="wrapper">
+  <div id="footer">
+    <div class="footbox">
+		<h2>Greenstone</h2>
+		<ul>
+			<li>University of Waikato</li>
+			<li>Knighton Rd</li>
+			<li>Hamilton 3240</li>
+			<li>New Zealand</li>
+		</ul>
+    </div>
+    <div class="footbox">
+		<h2>About Us</h2>
+		<ul>
+			<li><a href="#">Who we are</a></li>
+			<li><a href="#">What we do</a></li>			
+			<li><a href="#">Mission, Vision, Values</a></li>
+			<li><a href="#">Employment</a></li>
+		</ul>
+    </div>
+	<div class="footbox">
+		<h2>Additional Resources</h2>
+		<ul>
+			<li><a href="#">FAQ</a></li>
+			<li><a href="#">Site map</a></li>
+		</ul>
+    </div>
+	<div class="footbox">
+		<h2>Get in Touch</h2>
+		<ul>
+			<li><a href="#">Contact Us</a></li>
+			<li><a href="#">Staff Directory</a></li>			
+		</ul>
+    </div>
+    <div class="footbox last">
+      <h2>External Links</h2>
+      <ul>
+		<li><a href="http://www.greenstone.org">Greenstone.org</a></li>	  
+        <li><a href="#">Website 1</a></li>
+        <li><a href="#">Website 2</a></li>
+      </ul>
+    </div>
+    <br class="clear" />
+  </div>
+</div>
+<!-- ******DO NOT REMOVE THE LINK TO OS TEMPLATES: Template is free to use/modify, but this link MUST remain on all pages. Do not remove Copyright information. Replace "Your Webpage Here" (and it's link) with your own information.-->
+<div class="wrapper col8">
+	<div id="copyright">
+      	<p class="fl_left">Copyright &#169; 2013 - All Rights Reserved - <a href="#">Your Webpage Here</a></p>
+		<p class="fl_right">Template by <a href="http://www.os-templates.com/" title="Free Website Templates">OS Templates</a></p>
+		<br class="clear" />
+	</div>
+</div>
+<!--***********************************************************************************-->  
+</body>
+</html>
