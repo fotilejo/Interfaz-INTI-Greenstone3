@@ -27,11 +27,11 @@
 		<meta property="og:title" content="Repositorio Institucional INTI" />
 		<meta property="og:description" content="Conocimiento científico y técnico al servicio del desarrollo productivo. Consultá publicaciones, artículos y documentos en acceso abierto." />
 		<meta property="og:image" content="https://app.inti.gob.ar/greenstone3/interfaces/otra/images/LogoINTI.png" />
-		<meta property="og:url" content="https://app.inti.gob.ar/greenstone3/library" />
+		<meta property="og:url" content="https://app.inti.gob.ar/greenstone3/biblio" />
 		<meta property="og:site_name" content="Instituto Nacional de Tecnología Industrial" />
 		<meta property="og:type" content="website" />
 		<meta name="twitter:card" content="summary_large_image" />
-		<script type="application/ld+json">
+		<script type="application/ld+json"><xsl:text disable-output-escaping="yes">
 		{
 		  "@context" : "https://schema.org",
 		  "@type" : "WebSite",
@@ -39,7 +39,7 @@
 		  "alternateName" : ["INTI", "Instituto Nacional de Tecnología Industrial"],
 		  "url" : "https://app.inti.gob.ar/greenstone3/biblio"
 		}
-		</script>
+		</xsl:text></script>
 		<link rel="icon" type="image/svg+xml" href="https://app.inti.gob.ar/greenstone3/interfaces/otra/images/favicon_inti.svg" />
 		<link rel="icon" type="image/png" sizes="512x512" href="https://app.inti.gob.ar/greenstone3/interfaces/otra/images/favicon_inti.png" />
 	</head>
