@@ -10,6 +10,11 @@
 	<!-- use the 'main' layout -->
 	<xsl:include href="layouts/main.xsl"/>
 
+	<!-- Declarada vacia: config_format.xsl la referencia al generar enlaces a documento.
+	     Sin esto la transformacion falla con "Could not find variable opt-doc-link-args"
+	     cuando la pagina se pide con contexto de coleccion. -->
+	<xsl:variable name="opt-doc-link-args"></xsl:variable>
+
 	<!-- set page title -->
 	<xsl:template name="pageTitle"><xsl:value-of select="util:getInterfaceText($interface_name, /page/@lang, 'pref_b')"/></xsl:template>
 

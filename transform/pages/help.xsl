@@ -4,6 +4,11 @@
 	xmlns:gslib="http://www.greenstone.org/skinning">
 
 	<xsl:include href="layouts/main.xsl"/>
+
+	<!-- Declarada vacia: config_format.xsl la referencia al generar enlaces a documento.
+	     Sin esto la transformacion falla con "Could not find variable opt-doc-link-args"
+	     cuando la pagina se pide con contexto de coleccion. -->
+	<xsl:variable name="opt-doc-link-args"></xsl:variable>
 	<xsl:template name="pageTitle">Ayuda</xsl:template>
 	<xsl:template name="breadcrumbs">
 		<gslib:siteLink/><gslib:rightArrow/>
