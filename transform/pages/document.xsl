@@ -307,7 +307,12 @@
 					var normalizedType = docType.toLowerCase();
 					var typeLabel = "Publicaci\u00f3n T\u00e9cnica";
 					var typeIcon = "fa-file-lines";
-					if(normalizedType.indexOf("art") !== -1 || normalizedType.indexOf("article") !== -1) { typeLabel = "Art\u00edculo"; typeIcon = "fa-newspaper"; }
+					// Conjunto de datos primarios de investigacion (Ley 26.899 / SNRD).
+					// El vocabulario SNRD no tiene termino propio para dataset: la primera
+					// instancia de dc.Type es "other" y el termino en castellano es la
+					// segunda. Por eso se reconoce por el texto y no por el codigo.
+					if(normalizedType.indexOf("conjunto de datos") !== -1 || normalizedType.indexOf("dataset") !== -1) { typeLabel = "Conjunto de Datos"; typeIcon = "fa-database"; }
+					else if(normalizedType.indexOf("art") !== -1 || normalizedType.indexOf("article") !== -1) { typeLabel = "Art\u00edculo"; typeIcon = "fa-newspaper"; }
 					else if(normalizedType.indexOf("libro") !== -1 || normalizedType.indexOf("book") !== -1) { typeLabel = "Libro"; typeIcon = "fa-book"; }
 					else if(normalizedType.indexOf("conferencia") !== -1 || normalizedType.indexOf("conference") !== -1) { typeLabel = "Documento de Conferencia"; typeIcon = "fa-users"; }
 					else if(normalizedType.indexOf("tesis") !== -1 || normalizedType.indexOf("thesis") !== -1) { typeLabel = normalizedType.indexOf("doctor") !== -1 ? "Tesis de Doctorado" : "Tesis"; typeIcon = "fa-graduation-cap"; }

@@ -919,30 +919,43 @@
     var rawUrl = existingLink ? existingLink.href : licenseUrlFromText(rawText);
     var badgeText = compactLicenseName(rawText);
     if (!badgeText && rawUrl) badgeText = compactLicenseName(rawUrl);
-    var segments = humanRightsSegments(rawText);
+    if (!badgeText) {
+      text.querySelectorAll("a").forEach(function (link) {
+        link.target = "_blank";
+        link.rel = "noopener";
+        if (!link.querySelector("i")) {
+          var icon = document.createElement("i");
+          icon.className = "fa-solid fa-arrow-up-right-from-square";
+          icon.setAttribute("aria-hidden", "true");
+          icon.style.marginLeft = "4px";
+          link.appendChild(icon);
+        }
+      });
+      text.dataset.modernized = "true";
+      return;
+    }
 
+    var segments = humanRightsSegments(rawText);
     text.textContent = "";
 
-    if (badgeText) {
-      var badge = document.createElement(rawUrl ? "a" : "span");
-      badge.className = "repo-license-badge";
-      if (rawUrl) {
-        badge.href = rawUrl;
-        badge.target = "_blank";
-        badge.rel = "noopener";
-        badge.title = licenseTooltip(badgeText);
-        badge.setAttribute("aria-label", licenseTooltip(badgeText) + ". Abrir licencia en una nueva pestana");
-      }
-      badge.innerHTML = '<i class="fa-brands fa-creative-commons" aria-hidden="true"></i><span></span>';
-      badge.querySelector("span").textContent = badgeText;
-      if (rawUrl) {
-        var external = document.createElement("i");
-        external.className = "fa-solid fa-arrow-up-right-from-square";
-        external.setAttribute("aria-hidden", "true");
-        badge.appendChild(external);
-      }
-      text.appendChild(badge);
+    var badge = document.createElement(rawUrl ? "a" : "span");
+    badge.className = "repo-license-badge";
+    if (rawUrl) {
+      badge.href = rawUrl;
+      badge.target = "_blank";
+      badge.rel = "noopener";
+      badge.title = licenseTooltip(badgeText);
+      badge.setAttribute("aria-label", licenseTooltip(badgeText) + ". Abrir licencia en una nueva pestana");
     }
+    badge.innerHTML = '<i class="fa-brands fa-creative-commons" aria-hidden="true"></i><span></span>';
+    badge.querySelector("span").textContent = badgeText;
+    if (rawUrl) {
+      var external = document.createElement("i");
+      external.className = "fa-solid fa-arrow-up-right-from-square";
+      external.setAttribute("aria-hidden", "true");
+      badge.appendChild(external);
+    }
+    text.appendChild(badge);
 
     segments.forEach(function (segment) {
       var note = document.createElement("span");
@@ -951,26 +964,6 @@
       text.appendChild(note);
     });
 
-    if (rawUrl && !badgeText) {
-      var generatedLink = document.createElement("a");
-      generatedLink.href = rawUrl;
-      generatedLink.target = "_blank";
-      generatedLink.rel = "noopener";
-      generatedLink.appendChild(document.createTextNode("Ver licencia"));
-      text.appendChild(generatedLink);
-    }
-
-    text.querySelectorAll("a").forEach(function (link) {
-      if (/^https?:\/\//i.test(link.textContent.trim())) {
-        link.textContent = "Ver licencia";
-      }
-      if (!link.querySelector("i")) {
-        var icon = document.createElement("i");
-        icon.className = "fa-solid fa-arrow-up-right-from-square";
-        icon.setAttribute("aria-hidden", "true");
-        link.appendChild(icon);
-      }
-    });
     text.dataset.modernized = "true";
   }
 
