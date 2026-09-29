@@ -791,7 +791,7 @@
           if (split) {
             var author = document.createElement("strong");
             author.className = "repo-affiliation-author";
-            author.textContent = split[1];
+            author.textContent = split[1].replace(/\.+$/, "").trim();
             item.appendChild(author);
             var details = split[2].trim();
             var institution = details;
