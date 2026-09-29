@@ -570,7 +570,12 @@
           if (split) {
             var author = document.createElement("strong");
             author.className = "repo-affiliation-author";
-            author.textContent = split[1].replace(/\.+$/, "").trim();
+            var rawAuthor = split[1].trim();
+            var cleanAuthor = rawAuthor.replace(/\.+$/, "").trim();
+            if (cleanAuthor.match(/(?:^|[^a-zA-ZáéíóúñÁÉÍÓÚÑ])[a-zA-ZáéíóúñÁÉÍÓÚÑ]$/)) {
+                cleanAuthor += ".";
+            }
+            author.textContent = cleanAuthor;
             item.appendChild(author);
             var details = split[2].trim();
             var institution = details;
