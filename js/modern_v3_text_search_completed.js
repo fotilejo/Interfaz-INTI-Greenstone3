@@ -566,7 +566,8 @@
         parts.forEach(function (part) {
           var item = document.createElement("span");
           item.className = "repo-affiliation-item";
-          var split = part.match(/^(.+?)(\s+(?:Instituto|Universidad|Centro|Consejo|Comisi[oó]n|Laboratorio|Fundaci[oó]n|Facultad|Departamento|Argentina)\b.*)$/i);
+          var cleanPart = part.replace(/^(?:Fil|Filial):\s*/i, "").trim();
+          var split = cleanPart.match(/^(.+?)(\s+(?:Instituto|Istituto|Institute|Universidad|Università|University|Centro|Consejo|Consiglio|Council|Comisi[oó]n|Laboratorio|Laboratory|Fundaci[oó]n|Facultad|Faculty|Departamento|Department|Ministero|Ministry|Argentina)\b.*)$/i);
           if (split) {
             var author = document.createElement("strong");
             author.className = "repo-affiliation-author";
@@ -585,7 +586,7 @@
               institution = locationSplit[1].trim();
               location = locationSplit[2].trim();
             } else {
-              var countrySplit = details.match(/^(.*?)(\s+(?:Argentina|Brasil|Brazil|Chile|Uruguay|Paraguay|Bolivia|Peru|M[eÃ©]xico|Mexico|Espa[nÃ±]a|Spain|Estados Unidos|United States))$/i);
+              var countrySplit = details.match(/^(.*?)(\s+(?:Argentina|Brasil|Brazil|Chile|Uruguay|Paraguay|Bolivia|Per[uú]|M[eé]xico|Mexico|Espa[nñ]a|Spain|Estados Unidos|United States|Italia|Italy|Francia|France|Alemania|Germany|Reino Unido|UK|United Kingdom))$/i);
               if (countrySplit) {
                 institution = countrySplit[1].trim();
                 location = countrySplit[2].trim();
@@ -611,7 +612,7 @@
               item.appendChild(placeGroup);
             }
           } else {
-            item.textContent = part;
+            item.textContent = cleanPart;
           }
           list.appendChild(item);
         });
