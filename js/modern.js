@@ -788,7 +788,7 @@
           var item = document.createElement("span");
           item.className = "repo-affiliation-item";
           var cleanPart = part.replace(/^(?:Fil|Filial):\s*/i, "").trim();
-          var split = cleanPart.match(/^(.+?)(?:[.,;])\s+([^.,;]*(?:Instituto|Istituto|Institute|Universidad|Università|University|Centro|Consejo|Consiglio|Council|Comisi[oó]n|Laboratorio|Laboratory|Fundaci[oó]n|Facultad|Faculty|Departamento|Department|Ministero|Ministry|Hospital|Politecnico|Polytechnic|Escuela|School|Colegio|College|Academia|Academy|Argentina)\b.*)$/i);
+          var split = cleanPart.match(/^(.+?)(?:[.,;])\s+([^.,;]*(?:Instituto|Istituto|Institute|Universidad|Università|University|Centro|Consejo|Consiglio|Council|Comisi[oó]n|Laboratorio|Laboratory|Fundaci[oó]n|Facultad|Faculty|Departamento|Department|Ministero|Ministry|Hospital|Politecnico|Polytechnic|Escuela|School|Colegio|College|Academia|Academy|Argentina)(?!\w).*)$/i);
           if (split) {
             var author = document.createElement("strong");
             author.className = "repo-affiliation-author";
